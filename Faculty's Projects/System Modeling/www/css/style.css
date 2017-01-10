@@ -1,0 +1,40 @@
+
+.form-group {
+    margin-top: 10px;
+    margin-down: 10px;
+}
+
+hr {
+    border: 1px solid lightgray;
+}
+
+.centered {
+    width: 100px;
+    float: left;
+    text-align: center;
+}
+
+.list-group-item-success {
+    color: black;
+    font-size: 20px;
+    text-align: center;
+}
+
+#chckboxes {
+    float: left;
+}
+
+input[type="number"] {
+    width: 140px;
+    display: inline;
+}
+
+#calcBtn {
+    float: right;
+    color: white;
+}
+
+h1, h2 {
+    text-align: center;
+    text-decoration: underline;
+}

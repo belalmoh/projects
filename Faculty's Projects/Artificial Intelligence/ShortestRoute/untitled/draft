@@ -1,0 +1,10 @@
+    for(int i = 0; i < index; i++){
+        current_node = links[i].parent.getNodeName();
+        if(links[i].parent.getNodeName() == current_node){
+            Frontier.push_back(links[i].child);
+            Explored.push_back(links[i].parent);
+            links[i].parent.setVisited();
+        }
+
+
+    }

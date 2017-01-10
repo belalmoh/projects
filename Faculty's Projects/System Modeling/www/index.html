@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="sysModelingAssignment">
+    <head>
+        <title>Modeling Assignment</title>
+        <meta charset="UTF-8">
+        <script src="lib/angularjs/angular.min.js"></script>
+        <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+        <script src="js/app.js"></script>
+        <script src="lib/highcharts/highcharts.js"></script>
+        <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+    </head>
+    <body>
+        <div class="container" ng-controller="sysModelingCtrl">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3 class="text-center">
+                        <h1>Problem's Given Parameters</h1>
+                        <div class="list-group">
+                            <div class="list-group-item active">
+                                Clock
+                            </div>
+                            <div class="list-group-item">
+                                <input type="number" class="form-control" placeholder="Clock Rate" ng-model="givens.clockRate">
+                                <input type="number" class="form-control" placeholder="Clock Time" ng-model="givens.clockTime">
+                            </div>
+                            <div class="list-group-item active">
+                                CPI OR IPC
+                            </div>
+                            <div class="list-group-item">
+                                <input type="number" class="form-control" placeholder="CPI" ng-model="givens.cpi" ng-value="1/givens.ipc">
+                                <input type="number" class="form-control" placeholder="IPC" ng-model="givens.ipc" ng-value="1/givens.cpi">
+                            </div>
+                            <div class="list-group-item active">
+                                Ic
+                            </div>
+                            <div class="list-group-item">
+                                <input type="number" class="form-control" id="Ic" placeholder="Ic" ng-model="givens.ic">
+                            </div>
+                            <div class="list-group-item active">
+                                Frequency
+                            </div>
+                            <div class="list-group-item">
+                                <input type="number" class="form-control" id="Freq" placeholder="Ic" ng-model="givens.frequency" ng-value="1/calc.time">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h1>I want to calculate ..</h1>
+                        <ul class="list-group">
+                            <li class="list-group-item list-group-item-success">
+                                <input type="checkbox" id="chckboxes" ng-checked="todo.performance.isNeeded" ng-click="isChecked('performance')">                            Performance
+                            </li>
+                            <li class="list-group-item" ng-show="todo.performance.isNeeded">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="performance" ng-click="isSelected('performance', ['first', 'second'])">
+                                        1 / <input type="number" placeholder="Execution Time" ng-model="calc.executionTime" ng-disabled="!(todo.performance.first)">
+                                    </label>
+                                    <button type="button" class="btn btn-primary btn-sm" id="calcBtn" ng-click="calculateEq(1/calc.executionTime,'performance')"
+                                    ng-disabled="!(todo.performance.first)">
+                                    <span class="glyphicon glyphicon-stats"></span>
+                                    </button>
+                                </div>
+                            </li>
+                            <li class="list-group-item" ng-show="todo.performance.isNeeded">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="performance" ng-click= "isSelected('performance', ['second', 'first'])">
+                                        <input type="number" placeholder="IPC" ng-model="givens.ipc" ng-disabled="!(todo.performance.second)"> * <input type="number" placeholder="Frequency" ng-model="givens.frequency" ng-disabled="!(todo.performance.second)"> / <input type="number" placeholder="Ic" ng-model="givens.ic" ng-disabled="!(todo.performance.second)">
+                                    </label>
+                                    <button type="button" class="btn btn-primary btn-sm" id="calcBtn" ng-click="calculateEq( (givens.ipc*givens.frequency) / givens.ic ,'performance')"
+                                    ng-disabled="!(todo.performance.second)">
+                                    <span class="glyphicon glyphicon-stats"></span>
+                                    </button>
+                                </div>
+                            </li>
+                            <li class="list-group-item list-group-item-success">
+                                <input type="checkbox" id="chckboxes" ng-click="isChecked('executionTime')"> Execution Time
+                            </li>
+                            <li class="list-group-item" ng-show="todo.executionTime.isNeeded">
+                                <input type="number" placeholder="Ic" ng-model="givens.ic" ng-disabled="!(todo.executionTime.isNeeded)">                            * <input type="number" placeholder="Instruction Time" ng-model="calc.instructionTime" ng-disabled="!(todo.executionTime.isNeeded)">
+                                <button type="button" class="btn btn-primary btn-sm" id="calcBtn" ng-click="calculateEq( givens.ic*calc.instructionTime ,'executionTime')"
+                                ng-disabled="!(todo.executionTime.isNeeded)">
+                                <span class="glyphicon glyphicon-stats"></span>
+                                </button>
+                            </li>
+                            <li class="list-group-item list-group-item-success">
+                                <input type="checkbox" id="chckboxes" ng-click="isChecked('instructionTime')"> Instruction Time
+                            </li>
+                            <li class="list-group-item" ng-show="todo.instructionTime.isNeeded">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="instructionTime" ng-click= "isSelected('performance', ['first', 'second', 'third'])">
+                                        <input type="number" placeholder="Time" ng-model="calc.time" ng-value="1/givens.frequency" ng-disabled="!(todo.performance.first)"> * <input type="number" placeholder="CPI" ng-model="givens.cpi" ng-disabled="!(todo.performance.first)">
+                                    </label>
+                                    <button type="button" class="btn btn-primary btn-sm" id="calcBtn" ng-click="calculateEq( calc.time*givens.cpi ,'instructionTime')"
+                                    ng-disabled="!(todo.performance.first)">
+                                    <span class="glyphicon glyphicon-stats"></span>
+                                    </button>
+                                </div>
+                            </li>
+                            <li class="list-group-item" ng-show="todo.instructionTime.isNeeded">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="instructionTime" ng-click= "isSelected('performance', ['second', 'first', 'third'])">
+                                        <input type="number" placeholder="CPI" ng-model="givens.cpi" ng-disabled="!(todo.performance.second)"> / <input type="number" placeholder="Frequency" ng-model="givens.frequency" ng-disabled="!(todo.performance.second)">
+                                    </label>
+                                    <button type="button" class="btn btn-primary btn-sm" id="calcBtn" ng-click="calculateEq( givens.cpi/givens.frequency ,'instructionTime')"
+                                    ng-disabled="!(todo.performance.second)">
+                                    <span class="glyphicon glyphicon-stats"></span>
+                                    </button>
+                                </div>
+                            </li>
+                            <li class="list-group-item" ng-show="todo.instructionTime.isNeeded">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="instructionTime" ng-click= "isSelected('performance', ['third', 'first', 'second'])">
+                                        1 / <input type="number" placeholder="Frequency" ng-model="givens.frequency" ng-disabled="!(todo.performance.third)"> * <input type="number" placeholder="IPC" ng-model="givens.ipc" ng-disabled="!(todo.performance.third)">
+                                    </label>
+                                    <button type="button" class="btn btn-primary btn-sm" id="calcBtn" ng-click="calculateEq( 1/(givens.frequency*givens.ipc) ,'Mips')"
+                                    ng-disabled="!(todo.performance.third)">
+                                    <span class="glyphicon glyphicon-stats"></span>
+                                    </button>
+                                </div>
+                            </li>
+                            <li class="list-group-item list-group-item-success">
+                                <input type="checkbox" id="chckboxes" ng-click="isChecked('mips')"> MIPS
+                            </li>
+                            <li class="list-group-item" ng-show="todo.mips.isNeeded">
+                                <input type="number" placeholder="Clock Rate" ng-model="givens.clockRate" ng-disabled="!(todo.mips.isNeeded)">                            / <input type="number" placeholder="CPI" ng-model="givens.cpi" ng-disabled="!(todo.mips.isNeeded)">                            * 10^6
+                                <button type="button" class="btn btn-primary btn-sm" id="calcBtn" ng-click="calculateEq( givens.clockRate / (givens.cpi*1000000) ,'instructionTime')"
+                                ng-disabled="!(todo.mips.isNeeded)">
+                                <span class="glyphicon glyphicon-stats"></span>
+                                </button>
+                            </li>
+                            <li class="list-group-item list-group-item-success">
+                                <input type="checkbox" id="chckboxes" ng-click="isChecked('cpuExec')"> CPU Execution Time
+                            </li>
+                            <li class="list-group-item" ng-show="todo.cpuExec.isNeeded">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="cpuExecutionTime" ng-click= "isSelected('cpuExec', ['first', 'second', 'third'])">
+                                        <input type="number" placeholder="Clock Cycle" ng-model="calc.clockCycle" ng-disabled="!(todo.cpuExec.first)"> * <input type="number" placeholder="Clock Rate" ng-model="givens.clockRate" ng-disabled="!(todo.cpuExec.first)">
+                                    </label>
+                                    <button type="button" class="btn btn-primary btn-sm" id="calcBtn" ng-click="calculateEq( calc.clockCycle*givens.clockRate ,'cpuExecutionTime')"
+                                    ng-disabled="!(todo.cpuExec.first)">
+                                    <span class="glyphicon glyphicon-stats"></span>
+                                    </button>
+                                </div>
+                            </li>
+                            <li class="list-group-item" ng-show="todo.cpuExec.isNeeded">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="cpuExecutionTime" ng-click= "isSelected('cpuExec', ['second', 'first', 'third'])">
+                                        <input type="number" placeholder="Clock Cycle" ng-model="calc.clockCycle" ng-disabled="!(todo.cpuExec.second)"> * <input type="number" placeholder="Clock Cycle Time" ng-model="calc.clockCycleTime" ng-disabled="!(todo.cpuExec.second)">
+                                    </label>
+                                    <button type="button" class="btn btn-primary btn-sm" id="calcBtn" ng-click="calculateEq( calc.clockCycle*calc.clockCycleTime ,'cpuExecutionTime')"
+                                    ng-disabled="!(todo.cpuExec.second)">
+                                    <span class="glyphicon glyphicon-stats"></span>
+                                    </button>
+                                </div>
+                            </li>
+                            <li class="list-group-item" ng-show="todo.cpuExec.isNeeded">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="cpuExecutionTime" ng-click= "isSelected('cpuExec', ['third', 'first', 'second'])">
+                                        <input type="number" placeholder="Ic" ng-model="givens.ic" ng-disabled="!(todo.cpuExec.third)"> * <input type="number" placeholder="CPI" ng-model="givens.cpi" ng-disabled="!(todo.cpuExec.third)"> / <input type="number" placeholder="Clock Rate" ng-model="givens.clockRate" ng-disabled="!(todo.cpuExec.third)">
+                                    </label>
+                                    <button type="button" class="btn btn-primary btn-sm" id="calcBtn" ng-click="calculateEq( (givens.ic*givens.cpi) / givens.clockRate ,'cpuExecutionTime')"
+                                    ng-disabled="!(todo.cpuExec.third)">
+                                    <span class="glyphicon glyphicon-stats"></span>
+                                    </button>
+                                </div>
+                            </li>
+                            <li class="list-group-item list-group-item-success">
+                                <input type="checkbox" id="chckboxes" ng-click="isChecked('cpuClock')"> CPU Clock Cycles
+                            </li>
+                            <li class="list-group-item" ng-show="todo.cpuClock.isNeeded">
+                                <input type="number" placeholder="Ic" ng-model="givens.ic" ng-disabled="!(todo.cpuClock.isNeeded)">                            *
+                                <input type="number" placeholder="CPI" ng-model="givens.cpi" ng-disabled="!(todo.cpuClock.isNeeded)">
+                                <button type="button" class="btn btn-primary btn-sm" id="calcBtn" ng-click="calculateEq( givens.ic*givens.cpi ,'cpuClockCycle')"
+                                ng-disabled="!(todo.cpuClock.isNeeded)">
+                                <span class="glyphicon glyphicon-stats"></span>
+                                </button>
+                            </li>
+                        </ul>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="text-center">
+                    <hr ng-hide="result.isAllNull">
+                    <div id="outputs" ng-hide="result.isAllNull">
+                        <p ng-hide="result.performance.one === null"><b>Performance: </b> {{result.performance.one}}</p> <br>
+                        <p ng-hide="result.executionTime.one === null"><b>Execution Time: </b> {{result.executionTime.one}}</p> <br>
+                        <p ng-hide="result.instructionTime.one === null"><b>Instruction Time: </b> {{result.instructionTime.one}}</p> <br>
+                        <p ng-hide="result.Mips.one === null"><b>MIPS: </b> {{result.Mips.one}}</p> <br>
+                        <p ng-hide="result.cpuExecutionTime.one === null"><b>CPU Execution Time: </b> {{result.cpuExecutionTime.one}}</p> <br>
+                        <p ng-hide="result.cpuClockCycle.one === null"><b>CPU Clock Cycles: </b> {{result.cpuClockCycle.one}}</p> <br>
+                    </div>
+                    <hr>
+                    <div id="choices">
+                        <h3>I'd love to compare between:</h3>
+                        <div class="radio"> X:
+                            <label><input type="radio" name="choiceX" ng-click="setXandY('Performance', result.performance.many, 'x')">Performance</label>
+                            <label><input type="radio" name="choiceX" ng-click="setXandY('Execution Time', result.executionTime.many, 'x')">Execution Time</label>
+                            <label><input type="radio" name="choiceX" ng-click="setXandY('Instruction Time', result.instructionTime.many, 'x')">Instruction Time</label>
+                            <label><input type="radio" name="choiceX" ng-click="setXandY('Mips', result.Mips.many, 'x')">Mips</label>
+                            <label><input type="radio" name="choiceX" ng-click="setXandY('CPU Execution Time', result.cpuExecutionTime.many, 'x')">CPU Execution Time</label>
+                            <label><input type="radio" name="choiceX" ng-click="setXandY('CPU Clock Cycle', result.cpuClockCycle.many, 'x')">CPU Clock Cycle</label>
+                        </div>
+                        <br>
+                        <div class="radio"> Y:
+                            <label><input type="radio" name="choiceY" ng-click="setXandY('Performance', result.performance.many, 'y')" >Performance</label>
+                            <label><input type="radio" name="choiceY" ng-click="setXandY('Execution Time', result.executionTime.many, 'y')">Execution Time</label>
+                            <label><input type="radio" name="choiceY" ng-click="setXandY('Instruction Time', result.instructionTime.many, 'y')">Instruction Time</label>
+                            <label><input type="radio" name="choiceY" ng-click="setXandY('Mips', result.Mips.many, 'y')">Mips</label>
+                            <label><input type="radio" name="choiceY" ng-click="setXandY('CPU Execution Time', result.cpuExecutionTime.many, 'y')">CPU Execution Time</label>
+                            <label><input type="radio" name="choiceY" ng-click="setXandY('CPU Clock Cycle', result.cpuClockCycle.many, 'y')">CPU Clock Cycle</label>
+                        </div>
+                    </div>
+                    </h3>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </div>
+    <div id="graph">
+    </div>
+</div>
+</body>
+</html>

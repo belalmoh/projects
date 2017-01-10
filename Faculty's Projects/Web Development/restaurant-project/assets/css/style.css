@@ -1,0 +1,50 @@
+#section1 {
+    padding-top: 100px;                     
+    height: auto;                              /* for resizing the section to browser's window size*/
+    color: #fff; background-color: firebrick;
+}
+#section2 {
+    padding-top: 100px;
+    height: 100vh;
+    color: #fff; background-color: #673ab7;
+}
+#section3 {
+    padding-top: 100px;
+    height: auto;
+    color: #fff; background-color: crimson;
+}
+#section4 {
+    padding-top: 100px;
+    height: 100vh;
+    color: #fff; background-color: #045a85;
+}
+
+
+
+#section1 img{
+    box-sizing: padding-box;
+    border-radius: 20px 20px 20px 20px;
+}
+
+#section1 p{
+    font-size: 20px;
+    font-family:monospace;
+    color:coral;
+    text-align: center;
+}
+
+#section4 p{
+    font-size: 30;
+    color :navajowhite;
+}  
+
+#contactUs {
+    color:darkorange;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#orderBtn {
+    margin: 50px;
+    margin-left: 500px;
+}

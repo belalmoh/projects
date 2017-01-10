@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:text="Sender:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView4"
+            android:textColor="@color/senderColor"
+            android:textStyle="normal|bold"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="32dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/emailSender"
+            android:editable="false"
+            android:textColor="@color/senderColor"
+            android:singleLine="true"
+            android:gravity="left"
+            android:text="asdasdasd"
+            android:layout_above="@+id/emailSubject"
+            android:layout_toRightOf="@+id/emailSubject"
+            android:layout_toEndOf="@+id/emailSubject"
+            android:layout_marginTop="32dp"
+            android:layout_marginLeft="10dp" />
+
+        <TextView
+            android:text="Subject:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView5"
+            android:layout_marginTop="32dp"
+            android:textStyle="normal|bold"
+            android:textColor="@color/subjectColor"
+            android:layout_below="@+id/textView4"
+            android:layout_alignLeft="@+id/textView4"
+            android:layout_alignStart="@+id/textView4"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_marginLeft="15dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/emailSubject"
+            android:textColor="@color/subjectColor"
+            android:gravity="left"
+            android:text="asdasd"
+            android:layout_alignBaseline="@+id/textView5"
+            android:layout_alignBottom="@+id/textView5"
+            android:layout_toRightOf="@+id/textView5"
+            android:layout_toEndOf="@+id/textView5"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:layout_marginTop="32dp"
+            android:layout_marginLeft="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:id="@+id/emailBody"
+            android:textColor="@color/bodyColor"
+            android:textSize="17dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:layout_below="@+id/emailSubject"
+            android:layout_alignLeft="@+id/textView5"
+            android:layout_alignStart="@+id/textView5"
+            android:layout_row="2"
+            android:layout_column="1"
+            android:layout_marginLeft="15dp" />
+
+    </GridLayout>
+
+</RelativeLayout>

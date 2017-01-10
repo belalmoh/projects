@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Find My Bus</title>
+    <script src="http://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>
+
+<!-- FONTS --> 
+<link href='http://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
+<!-- FONTS --> 
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="shortcut icon" type="image/ico" href="Blue_bus.png"> 
+
+    
+        <link rel="stylesheet" href="css/style.css">
+
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="js/typed.js" type="text/javascript"></script>
+    
+  </head>
+
+  <body>
+
+    <div class="container">
+      <img src="acu.jpg" id="acu">    
+      <!--<h1 class="heading-primary">ACU - Find My Bus</h1>
+        <div class="type-wrap">
+            <span id="typed" style="white-space:pre;"></span>
+        </div> -->
+        <div class="accordion">
+            <dl>
+              <dt>
+                
+                <a href="#accordion1" id="acc" aria-expanded="false" aria-controls="accordion1" class="accordion-title accordionTitle js-accordionTrigger type-wrap" onmouseover="hoverIn()" onmouseout="hoverOut()"> Press here to select your lane </a>
+              </dt>
+              <dd class="accordion-content accordionItem is-collapsed" id="accordion1" aria-hidden="true">
+                
+                <!--<a id="1stLane" class="accordionTitle">first</a>-->
+                
+                <a id="lane1" onclick=details(id) class="myLanes">Abbasiya</a>
+                <a id="lane2" onclick=details(id) class="myLanes">Misr El Gedida</a>
+                <a id="lane3" onclick=details(id) class="myLanes">Madinet Nasr</a>
+                <a id="lane4" onclick=details(id) class="myLanes">Helmyet AlZayton</a>
+                <a id="lane5" onclick=details(id) class="myLanes">Ain Shams</a>
+                <a id="lane6" onclick=details(id) class="myLanes">October</a>
+                <a id="lane7" onclick=details(id) class="myLanes">Al-Sheikh Zayed</a>
+                
+              </dd>
+             
+            </dl>
+          </div>
+      
+            <table style="width:100%; display:none" id="mytable">
+              <tr>
+                <th>Driver's Name</th>
+                <th>Driver's Mobile</th>		
+              </tr>
+              
+              <tr>
+                <td id="driverName"></td>
+                <td id="driverNum"></td>		
+              </tr>
+              
+              <tr>
+                <th colspan="2">Bus Location</th>
+              </tr>
+              
+              <tr>
+                <td colspan="2" id="busLoc">The location will appear here in a map</td>
+              </tr>
+              
+              <tr>
+                <td colspan="2"><button id="hideMe" class="btn">Press to hide the table</button></td>
+              </tr>
+            </table>
+      
+        
+          <div class="rest slider" id="slider" style="padding-top:20px;">
+              <p style="padding-bottom:10px;">Comments & Feedback</p>  
+              <div class="onoffswitch">
+                    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch">
+                    <label class="onoffswitch-label" for="myonoffswitch"></label>
+                </div>
+              </div>
+              <div id="form-main" style="display: none;">
+                <div id="form-div">
+                <form class="form" id="form1" action="">
+      
+                <p class="name">
+                    <input name="name" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Name"                                id="name" />
+                </p>
+      
+                <p class="email">
+                    <input name="email" type="text" class="validate[required,custom[email]] feedback-input" id="email" placeholder="Email" />
+                </p>
+      
+                <p class="text">
+                    <textarea name="text" class="validate[required,length[6,300]] feedback-input" id="comment" placeholder="Comment"></textarea>
+                </p>
+      
+                    <p>Do you like the application?</p>
+                    <div class="onoffswitch1">
+                        <input type="checkbox" name="onoffswitch1" class="onoffswitch-checkbox1" id="myonoffswitch1" checked>
+                        <label class="onoffswitch-label1" for="myonoffswitch1">
+                            <span class="onoffswitch-inner1"></span>
+                            <span class="onoffswitch-switch1"></span>
+                        </label>
+                    </div>
+                            
+   
+
+
+                <div class="submit">
+                    <input type="submit" value="SEND" id="button-blue"/>
+                <div class="ease"></div>
+                </div>
+                </form>
+                </div>
+      
+            </div>
+        
+        <div class="rest slider" id="slider" style="padding:20px;">
+            
+            <p>Testing phase is under progress.</p>
+            
+            
+        </div>
+        
+        
+        
+      </div>
+    
+      
+    
+        <script src="js/index.js"></script>
+    
+    
+  </body>
+</html>

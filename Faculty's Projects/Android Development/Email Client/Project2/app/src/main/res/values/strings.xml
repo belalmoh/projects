@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Email Notifier</string>
+
+    <string name="emailHint">Email</string>
+    <string name="passwordHint">Password</string>
+    <string name="loginBtn">Login</string>
+    <string name="clrBtn">Clear</string>
+</resources>

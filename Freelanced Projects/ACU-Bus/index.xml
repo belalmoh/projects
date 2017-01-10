@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BusGPS>
+ <Bus id="Abbasiya1">
+  <driverName>Abbasiya Driver</driverName>
+  <driverNum>01114124461</driverNum>
+  <busLoc>Abbasiya's Map</busLoc>
+ </Bus>
+ 
+ <Bus id="Misr El Gedida">
+  <driverName>Misr El Gedida Driver</driverName>
+  <driverNum>01114124461</driverNum>
+  <busLoc>Misr El Gedida's Map</busLoc>
+ </Bus>
+
+
+</BusGPS>

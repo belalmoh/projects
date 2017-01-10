@@ -1,0 +1,127 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700);
+/* line 3, C:/Users/Belal/Desktop/css-responsive-animated-accordion/scss/style.scss */
+* {
+  box-sizing: border-box; }
+
+/* line 7, C:/Users/Belal/Desktop/css-responsive-animated-accordion/scss/style.scss */
+body {
+  font-family: 'Lato'; }
+
+/* line 11, C:/Users/Belal/Desktop/css-responsive-animated-accordion/scss/style.scss */
+.heading-primary {
+  font-size: 2em;
+  padding: 2em;
+  text-align: center; }
+
+/* line 17, C:/Users/Belal/Desktop/css-responsive-animated-accordion/scss/style.scss */
+.accordion dl, .accordion-list {
+  border: 1px solid #ddd; }
+  /* line 19, C:/Users/Belal/Desktop/css-responsive-animated-accordion/scss/style.scss */
+  .accordion dl:after, .accordion-list:after {
+    content: "";
+    display: block;
+    height: 1em;
+    width: 100%;
+    background-color: #2ba659; }
+
+/* line 28, C:/Users/Belal/Desktop/css-responsive-animated-accordion/scss/style.scss */
+.accordion dd, .accordion__panel {
+  background-color: #eee;
+  font-size: 1em;
+  line-height: 1.5em; }
+
+/* line 33, C:/Users/Belal/Desktop/css-responsive-animated-accordion/scss/style.scss */
+.accordion p {
+  padding: 1em 2em 1em 2em; }
+
+/* line 37, C:/Users/Belal/Desktop/css-responsive-animated-accordion/scss/style.scss */
+.accordion {
+  position: relative;
+  background-color: #eee; }
+
+/* line 41, C:/Users/Belal/Desktop/css-responsive-animated-accordion/scss/style.scss */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2em 0 2em 0; }
+
+/* line 47, C:/Users/Belal/Desktop/css-responsive-animated-accordion/scss/style.scss */
+.accordionTitle, .accordion__Heading {
+  background-color: #38cc70;
+  text-align: center;
+  font-weight: 700;
+  padding: 2em;
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  transition: background-color 0.5s ease-in-out;
+  border-bottom: 1px solid #30bb64; }
+  /* line 57, C:/Users/Belal/Desktop/css-responsive-animated-accordion/scss/style.scss */
+  .accordionTitle:before, .accordion__Heading:before {
+    content: "+";
+    font-size: 1.5em;
+    line-height: 0.5em;
+    float: left;
+    transition: transform 0.3s ease-in-out; }
+  /* line 64, C:/Users/Belal/Desktop/css-responsive-animated-accordion/scss/style.scss */
+  .accordionTitle:hover, .accordion__Heading:hover {
+    background-color: #2ba659; }
+
+/* line 69, C:/Users/Belal/Desktop/css-responsive-animated-accordion/scss/style.scss */
+.accordionTitleActive, .accordionTitle.is-expanded {
+  background-color: #2ba659; }
+  /* line 71, C:/Users/Belal/Desktop/css-responsive-animated-accordion/scss/style.scss */
+  .accordionTitleActive:before, .accordionTitle.is-expanded:before {
+    transform: rotate(-225deg); }
+
+/* line 76, C:/Users/Belal/Desktop/css-responsive-animated-accordion/scss/style.scss */
+.accordionItem {
+  height: auto;
+  overflow: hidden;
+  max-height: 50em;
+  transition: max-height 1s; }
+  @media screen and (min-width: 48em) {
+    .accordionItem {
+      max-height: 15em;
+      transition: max-height 0.5s; } }
+
+/* line 94, C:/Users/Belal/Desktop/css-responsive-animated-accordion/scss/style.scss */
+.accordionItem.is-collapsed {
+  max-height: 0; }
+
+/* line 97, C:/Users/Belal/Desktop/css-responsive-animated-accordion/scss/style.scss */
+.no-js .accordionItem.is-collapsed {
+  max-height: auto; }
+
+/* line 100, C:/Users/Belal/Desktop/css-responsive-animated-accordion/scss/style.scss */
+.animateIn {
+  animation: accordionIn 0.65s normal ease-in-out both 1; }
+
+/* line 103, C:/Users/Belal/Desktop/css-responsive-animated-accordion/scss/style.scss */
+.animateOut {
+  animation: accordionOut 0.75s alternate ease-in-out both 1; }
+
+@keyframes accordionIn {
+  /* line 107, C:/Users/Belal/Desktop/css-responsive-animated-accordion/scss/style.scss */
+  0% {
+    opacity: 0;
+    transform: scale(0.9) rotateX(-60deg);
+    transform-origin: 50% 0; }
+
+  /* line 112, C:/Users/Belal/Desktop/css-responsive-animated-accordion/scss/style.scss */
+  100% {
+    opacity: 1;
+    transform: scale(1); } }
+
+@keyframes accordionOut {
+  /* line 119, C:/Users/Belal/Desktop/css-responsive-animated-accordion/scss/style.scss */
+  0% {
+    opacity: 1;
+    transform: scale(1); }
+
+  /* line 123, C:/Users/Belal/Desktop/css-responsive-animated-accordion/scss/style.scss */
+  100% {
+    opacity: 0;
+    transform: scale(0.9) rotateX(-60deg); } }
+
+/*# sourceMappingURL=style.css.map */

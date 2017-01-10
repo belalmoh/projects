@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">My Application</string>
+
+    <string name="appTitle">Find location by its name</string>
+    <string name="textFieldHint">Location Name</string>
+    <string name="buttonName">Search</string>
+    <string name="googlePlacesURI">https://www.google.com.eg/maps/place/</string>
+    <string name="googlePlacesApiKey">AIzaSyBS8yxk4e3u_PrQwRFr-2mc4HmeymovcFw</string>
+</resources>

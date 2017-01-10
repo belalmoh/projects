@@ -1,0 +1,1 @@
+include ':app', ':javax.mail-1.4.5', ':javax.mail', ':commons-email-1.4', ':mail', ':activation', ':additionnal'
