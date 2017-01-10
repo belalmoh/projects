@@ -1,0 +1,38 @@
+<ion-view view-title="الاشتراكات">
+<ion-content class="appContent">
+<div class="list">
+	<label class="item item-input">
+		<span class="input-label">اسم اللاعب</span>
+		<input type="text" ng-model="player.name">
+	</label>
+	<label class="item item-input">
+		<span class="input-label">رقم الموبايل</span>
+		<input type="text" ng-model="player.mobile">
+	</label>
+	<label class="item item-input">
+		<span class="input-label">رقم البطاقة</span>
+		<input type="text" ng-model="player.ssn">
+	</label>
+	<label class="item item-input">
+		<span class="input-label">نوع الاشتراك</span>
+		<ion-checkbox ng-click="player.subType = 225; radioBtn(1, 'pricesBtns');" ng-checked="pricesBtns.btn1">225</ion-checkbox>
+		
+		<ion-checkbox ng-click="player.subType = 275; radioBtn(2, 'pricesBtns');" ng-checked="pricesBtns.btn2">275</ion-checkbox>
+	</label>
+	<label class="item item-input" aria-required="true">
+		<span class="input-label">مدة الاشتراك</span>
+		<ion-checkbox ng-click="player.subPeriod = 1; radioBtn(1, 'periodsBtns')" ng-checked="periodsBtns.btn1">شهر</ion-checkbox>
+		<ion-checkbox ng-click="player.subPeriod = 3; radioBtn(2, 'periodsBtns')" ng-checked="periodsBtns.btn2">ثلاث شهور</ion-checkbox>
+		<ion-checkbox ng-click="player.subPeriod = 6; radioBtn(3, 'periodsBtns')" ng-checked="periodsBtns.btn3">ست شهور</ion-checkbox>
+	</label>
+	<div class="button-bar" id="btnBar">
+		<button class="button icon-left ion-checkmark-round button-block button-balanced" id="rightBtn" ng-click="player.isValidForm()">
+		تسجيل اشتراك
+		</button>
+		<button class="button icon-left ion-close-round button-block button-assertive" id="leftBtn" ng-click="player.clearFields()">
+		تفريغ الخانات
+		</button>
+	</div>
+</div>
+</ion-content>
+</ion-view>

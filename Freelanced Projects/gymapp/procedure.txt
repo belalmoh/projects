@@ -1,0 +1,26 @@
+DELIMITER $$
+CREATE
+FUNCTION get_id() RETURNS VARCHAR(50)
+BEGIN
+  DECLARE
+    retId VARCHAR(50) ;
+  SELECT CONCAT
+    (CURDATE(),
+    CURTIME())
+  INTO
+    retId ;
+    END ; ;
+
+  --   BEGIN
+  -- DECLARE
+  --   retId VARCHAR(50) ;
+  -- SELECT CONCAT
+  --   (CURDATE(),
+  --   CURTIME())
+  -- INTO
+  --   retId ;
+    
+  --   SELECT REPLACE(REPLACE(retId, '-', ''), ':', '') INTO retId;
+    
+  --   RETURN retId;
+  --   END; ;

@@ -1,0 +1,112 @@
+/* Empty. Add your own CSS if you like */
+
+body {
+	direction: rtl;
+}
+
+.sideMenu ion-item {
+	direction: rtl;
+	cursor: pointer;
+	margin-right: -35px;
+	font-size: 20px;
+}
+
+.item-content {
+	transition-property: background-color;
+	transition-duration: .2s;
+	transition-timing-function: linear;
+}
+
+.item-content:hover {
+	background-color: #D7D7D7;
+}
+
+.icon {
+	margin-left: 10px;
+	font-size: 20px;
+}
+
+.appContent {
+	// float: right;
+	direction: rtl;
+}
+
+.row {
+	direction: rtl;
+	border-top: 2px solid;
+}
+
+.col-20,
+.col-80 {
+	margin-top: 40px;
+}
+
+.item-checkbox {
+	direction: ltr;
+	border: none;
+}
+
+.searchBox {
+	background-color: #DDDDDD;
+}
+
+.searchIcon {
+	margin-right: 30px;
+}
+
+#container {
+	direction: ltr;
+}
+
+.header .col {
+	background-color: #76F3FB;
+}
+
+.col {
+	border: solid 1px grey;
+	border-bottom-style: none;
+	// border-right-style: none;
+}
+
+.header {
+	border: none;
+}
+
+.col:last-child {
+	border-right: solid 1px grey;
+}
+
+.row:first-child {
+	border: none;
+}
+
+.row:last-child .col {
+	border-bottom: solid 1px grey;
+}
+
+.header div {
+	text-align: center;
+	font-weight: 700;
+}
+
+#failureMessage {
+	text-align: center;
+	color: red;
+}
+
+#btnBar {
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+.button-bar {
+	direction: ltr;
+}
+
+#rightBtn {
+	margin-left: 10px;
+}
+
+#leftBtn {
+	margin-right: 10px;
+}
