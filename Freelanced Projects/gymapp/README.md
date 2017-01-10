@@ -10,8 +10,10 @@ And also there is a separate account for the gym's manager to just monitor the p
 
 * HTML / CSS
 * Angular JS
+* HighchartJS
 * PHP
 * Ionic
+
 
 ## To be added ##
 
