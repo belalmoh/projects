@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="rootApp">
+    <head>
+        <meta charset="UTF-8">
+        <title>Todo</title>
+        <base href="#/"></base>
+
+        <script src="../js/lib/angular.min.js"></script>
+        <script src="../js/lib/angular-route.js"></script>
+        <script src="../lib/ionic/js/angular-ui/angular-ui-router.js"></script>
+        <script src="../js/lib/augment.js"></script>
+        <script src="../lib/ngCordova/dist/ng-cordova.js"></script>
+        
+        <script src="../js/models/base-class.js"></script>
+        <script src="../js/models/todo.js"></script>
+        <script src="../js/models/user.js"></script>
+        <script src="../js/node-models/socket.io-client.min.js"></script>
+        <script src="../js/node-models/dbconn.js"></script>
+
+        <script src="../js/controllers/angular-controller.js"></script>
+        <script src="../js/controllers/user-controller.js"></script>
+        <script src="../js/controllers/user-controller@login.js"></script>
+        <script src="../js/controllers/user-controller@sign-up.js"></script>
+        <script src="../js/controllers/user-controller@user-todo.js"></script>
+
+
+        <link href="../lib/ionic/css/ionic.css" rel="stylesheet">
+        <link href="../css/style.css" rel="stylesheet">
+        <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+        <link href="css/ionic.app.css" rel="stylesheet">
+        -->
+        <!-- ionic/angularjs js -->
+        <script src="../lib/ionic/js/ionic.bundle.js"></script>
+        
+        <!-- your app's js -->
+        <script src="../js/app.js"></script>
+
+
+    </head>
+    <body>
+        
+        <div ng-view>
+        </div>
+        
+        <!--<script type="text/javascript" src="../cordova.js"></script>-->
+        <script type="text/javascript" src="../js/index.js"></script>
+    </body>
+</html>

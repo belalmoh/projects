@@ -1,0 +1,49 @@
+<div class="bar bar-header bar-light">
+    <a class="button icon-left ion-chevron-left button-clear button-dark" id="logout-icon"
+       ng-click="loginPage()"> Private Todos</a>
+    <h1 class="title">You're now logged in anonymously</h1>
+
+</div>
+
+
+<ion-tabs class="tabs-positive tabs-icon-top">
+
+    <ion-tab title="Home" icon-on="ion-ios-filing" icon-off="ion-ios-filing-outline">
+        <div class="spacer" id="todo-spacer"></div>
+        <h1 id="todo-heading4" class="ic-selected" data-componentid="heading4" data-tap-disabled="true">Todo List</h1>
+        <div class="list">
+            <div class="item item-input-inset">
+                <label class="item-input-wrapper ">
+                    <input type="text" placeholder="what should be done?" ng-model="todoName">
+                </label>
+                <button class="button button-small ion-plus-round button-assertive"
+                        ng-click="addToDo(todoName)"></button>
+            </div>
+        </div>
+
+
+        <ion-list show-delete="false" can-swipe="true">
+            <ion-item ng-repeat="todo in names track by $index"
+                      ng-class="todo.status ? 'checkedItem' : 'uncheckedItem'">
+                {{ todo.name }}
+
+                <ion-option-button class="button-balanced icon ion-checkmark-round"
+                                   ng-click="setChecked(todo.name)"></ion-option-button>
+                <ion-option-button class="button-assertive icon ion-trash-a"
+                                   ng-click="deleteToDo(todo.name)"></ion-option-button>
+            </ion-item>
+        </ion-list>
+    </ion-tab>
+
+    <ion-tab title="Log" icon-on="ion-ios-clock" icon-off="ion-ios-clock-outline" on-select="viewLogs()">
+        <div class="spacer" id="todo-spacer"></div>
+        <h1 id="todo-heading4" class="ic-selected" data-componentid="heading4" data-tap-disabled="true">Activity Log
+        </h1>
+        <ion-list>
+            <ion-item ng-repeat="log in logs track by $index">
+                {{log.history}}
+            </ion-item>
+        </ion-list>
+    </ion-tab>
+
+</ion-tabs>

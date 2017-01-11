@@ -1,0 +1,27 @@
+<div class="bar bar-header bar-light">
+    <a class="button icon-left ion-chevron-left button-clear button-dark" id="logout-icon"
+    ng-click="Logout()">  Logout </a>
+    <h1 class="title">Hello Mr/Ms, {{ loggedUser }}</h1>
+    <a class="button icon-right ion-chevron-right button-clear button-dark" id="logout-icon" 
+    ng-click="anonymously()"> Anonymous </a>
+</div>
+<div class="spacer" id="todo-spacer"></div>
+<h1 id="todo-heading4" class="ic-selected" data-componentid="heading4" data-tap-disabled="true">Todo List</h1>
+<div class="list">
+    <div class="item item-input-inset">
+        <label class="item-input-wrapper ">
+            <input type="text" placeholder="what should be done?" ng-model="todoName">
+        </label>
+        <button class="button button-small ion-plus-round button-assertive" ng-click="addToDo(todoName)"></button>
+    </div>
+</div>
+<ion-list show-delete="false" can-swipe="true">
+<ion-item ng-repeat="todo in names track by $index" ng-class="todo.status ? 'checkedItem' : 'uncheckedItem'">
+{{ todo.name }}
+<ion-option-button class="button-balanced icon ion-checkmark-round"
+ng-click="setChecked(todo.name)"></ion-option-button>
+<ion-option-button class="button-assertive icon ion-trash-a"
+ng-click="deleteToDo(todo.name)"></ion-option-button>
+
+</ion-item>
+</ion-list>

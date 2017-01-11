@@ -1,0 +1,37 @@
+<!-- <div id="container">
+    <h1>Sign in</h1>
+    <br> <br>
+    <form onsubmit="event.preventDefault()">
+        <p>Username</p>
+        <input type="text" ng-model="userName"> <br>
+        <p>Password</p>
+        <input type="password" ng-model="password" > <br> <br>
+        <input type="submit" value="Sign in" ng-click="setLogin(userName, password)">
+    </form>
+    <p id="newUser">New user? <a href="#/sign-up">Sign up now!</a></p>
+    <p id="incorrectMessage"></p>
+</div> -->
+<ion-view title="Login" hide-nav-bar="true" hide-back-button="true" id="page4" class=" " ng-init="setDB()">
+<ion-content padding="true" class="manual-ios-statusbar-padding">
+<form id="login-form3" class="list " onsubmit="event.preventDefault()">
+    <div class="spacer"></div>
+    <h1 id="login-heading2" class=" ">Sign in</h1>
+    <ion-list id="login-list2" class=" ">
+    <label class="item item-input item-floating-label " id="login-input6">
+        <span class="input-label">Username</span>
+        <input type="text" placeholder="Username" ng-model="userName">
+    </label>
+    <label class="item item-input item-floating-label " id="login-input7">
+        <span class="input-label">Password</span>
+        <input type="password" placeholder="Password" ng-model="password">
+    </label>
+    </ion-list>
+    
+    <button id="login-button9" class=" button button-positive  button-block "
+    ng-click="setLogin(userName, password)">Log in</button>
+    
+    <a href="#/sign-up" id="login-button10" class=" button button-positive  button-block button-clear ">Or create an account</a>
+    <p id="login-markdown1" class="ic-selected">{{loginResponse}}</p>
+</form>
+</ion-content>
+</ion-view>

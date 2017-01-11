@@ -1,0 +1,26 @@
+<div class="bar bar-header bar-light">
+    <a class="button icon-left ion-chevron-left button-clear button-dark" href="#/sign-in">sign-in</a>
+</div>
+<ion-view title="Signup" hide-nav-bar="true" hide-back-button="true" id="page5" class=" ">
+    <ion-content padding="true" class="manual-ios-statusbar-padding">
+        <form id="signup-form4" class="list " onsubmit="event.preventDefault()">
+            <div class="spacer"></div>
+            <h1 id="signup-heading3" class=" ">Sign up</h1>
+            <ion-list id="signup-list3" class=" ">
+                <label class="item item-input item-floating-label " id="signup-input9">
+                    <span class="input-label">Username</span>
+                    <input type="text" placeholder="Username" ng-model="userName">
+                </label>
+                <label class="item item-input item-floating-label " id="signup-input10">
+                    <span class="input-label">Password</span>
+                    <input type="password" placeholder="Password" ng-model="pass">
+                </label>
+            </ion-list>
+            <button id="signup-button11" class=" button button-balanced  button-block " 
+            ng-click="signUp(userName, pass)">Sign up</button>
+        </form>
+        <p id="signup-markdown1" class="ic-selected" ng-show="isRegistered" ng-bind="registeredLabel"></p>
+    </ion-content>
+</ion-view>
+
+
