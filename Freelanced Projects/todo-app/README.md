@@ -14,4 +14,5 @@ It's ready to run in a **Cordova** project so that you can use it as a mobile ap
 * HTML / CSS
 * Angular JS
 * NodeJs
+* AugmentJS
 * Ionic
