@@ -12,9 +12,9 @@ enum TodoStatus {
 
 class Todos {
     static lastId: number;
-    id: number;
-    name: string = "";
-    status: number;
+    private id: number;
+    private name: string = "";
+    private status: number;
 
     
     /**
