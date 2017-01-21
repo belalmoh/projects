@@ -1,0 +1,14 @@
+{
+  "name": "enhanced-todo",
+  "version": "1.0.0",
+  "description": "I'm currently developing an enhanced-todo-system.",
+  "main": "js/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "systemjs": "^0.19.43"
+  }
+}
