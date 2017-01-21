@@ -16,4 +16,4 @@ I'm currently developing an enhanced-todo-system.
 * Todos alerts you upon leaving previously chosen certain area.
 ---
 ## Progress
-![a](http://progressed.io/bar/3?title=%20completed)
+![a](http://progressed.io/bar/10?title=%20completed)
