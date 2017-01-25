@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         id="com.plugin.instacapture"
-        version="0.0.1">
-
+        version="0.0.1"
+        spec="https://github.com/belalmoh/projects/tree/master/freelanced-projects/instacapture.git" source="git"
+        >
   <name>InstaCapture</name>
   <description>A Cordova plugin for instacapture library</description>
 
