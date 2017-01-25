@@ -1,5 +1,5 @@
-package com.custom.plugin.alert;
-
+package com.plugin.instacapture;
+import com.plugin.instacapture.InstaCapture;
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaInterface;
 import org.apache.cordova.CordovaPlugin;
@@ -9,7 +9,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Alert extends CordovaPlugin {
+public class InstaCapturePlugin extends CordovaPlugin {
   public final String ALERT_HI = "sayHi";
   public final String ALERT_HELLO = "sayHello";
   public final String ALERT_CONGRATS = "sayCongratulations";

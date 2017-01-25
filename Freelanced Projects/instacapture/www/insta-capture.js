@@ -2,14 +2,14 @@ module.exports = {
   alert: function (title, message, buttonLabel, successCallback) {
     cordova.exec(successCallback,
       null, // No failure callback
-      "Alert",
+      "InstaCapturePlugin",
       "alert", [title, message, buttonLabel]);
   },
   sayHi: function (successCallback, failureCallback) {
     cordova.exec(
       successCallback,
       failureCallback,
-      "Alert",
+      "InstaCapturePlugin",
       "sayHi"
     );
   },
@@ -17,7 +17,7 @@ module.exports = {
     cordova.exec(
       successCallback,
       failureCallback,
-      "Alert",
+      "InstaCapturePlugin",
       "sayHello"
     );
   },
@@ -25,7 +25,7 @@ module.exports = {
     cordova.exec(
       successCallback,
       failureCallback,
-      "Alert",
+      "InstaCapturePlugin",
       "sayCongratulations"
     );
   },
@@ -33,7 +33,7 @@ module.exports = {
     cordova.exec(
       successCallback,
       failureCallback,
-      "Alert",
+      "InstaCapturePlugin",
       "Testing"
     );
   }
