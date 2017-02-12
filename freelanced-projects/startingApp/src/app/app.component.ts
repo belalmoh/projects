@@ -5,6 +5,7 @@ import { HomePage } from '../pages/home/home';
 
 
 @Component({
+  selector: 'ion-app',
   templateUrl: 'app.html'
 })
 export class MyApp {

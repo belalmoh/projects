@@ -14,3 +14,55 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+// Left Container
+.appBanner {
+  width: 50%;
+  float: left;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  text-align: right;
+  background-color: #ff5252;
+}
+
+.To {
+    margin-right: 2px;
+    font-size: 80px;
+    font-family: 'SlimJohn';
+    color: white;
+}
+
+.slogan {
+    margin-right: 5px;
+    font-size: 10px;
+    font-family: 'SlimJohn';
+    color: white;
+}
+
+// --------------------------------------------------- 
+
+// Right Container
+.appBanner2 {
+  margin-left: 50%;
+  width: 50%;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  text-align: left;
+  background-color: #FAFAFA;
+}
+
+.Do {
+    margin-left: 2px;
+    font-size: 80px;
+    font-family: 'BigJohn';
+    color: #ff5252;
+}
+
+.slogan2 {
+    margin-left: 8px;
+    font-size: 10px;
+    font-family: 'BigJohn';
+    color: #ff5252;
+}
+
+// --------------------------------------------------- 

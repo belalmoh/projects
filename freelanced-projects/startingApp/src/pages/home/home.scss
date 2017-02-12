@@ -1,3 +1,100 @@
-page-home {
-
+// --------------------------------------------------- 
+// Declaration of the fonts
+@font-face {
+    font-family: 'BigJohn';
+    src: url("../assets/fonts/BIGJOHN.ttf") format('truetype');
 }
+
+@font-face {
+    font-family: 'SlimJohn';
+    src: url("../assets/fonts/SlimJoe.ttf") format('truetype');
+}
+
+// --------------------------------------------------- 
+
+// Signin form
+
+.signinForm {
+    margin-top: 20px;
+}
+
+.signinWord{
+    font-family: 'SlimJohn';
+    color: #ff5252;
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: -1px;
+    margin-top: -15px;
+}
+
+.signinButton {
+    background-color: #ff5252;
+    float: left;
+    width: 49%;
+    margin-left: 0px;
+}
+
+.forgetpassButton {
+    color: #ff5252;
+    border-color: #ff5252;
+    float: right;
+    width: 49%;
+    margin-bottom: 30px;
+}
+
+.signupButton {
+    background-color: #ff5252;
+}
+
+ion-label {
+    color: #2196F3 !important;
+}
+
+
+// --------------------------------------------------- 
+
+// strike through
+
+.lineThrough {
+	display: flex;
+	flex-basis: 100%;
+	align-items: center;
+	color: black;
+	margin: 8px 0px;
+}
+.lineThrough::before,
+.lineThrough::after {
+	content: "";
+	flex-grow: 1;
+	background: rgba(0, 0, 0, 0.35);
+	height: 2px;
+	font-size: 0px;
+	line-height: 0px;
+	margin: 0px 8px;
+}
+
+// --------------------------------------------------- 
+
+// Social Accounts
+
+.socialAccountsWord {
+    font-family: 'SlimJohn';
+    font-weight: 900;
+    font-size: 15px;
+}
+
+.socialIcons{
+    text-align: center;
+    button {
+        ion-icon {
+            font-size: 30px;
+        }
+    }
+}
+
+.gplusIcon {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+// --------------------------------------------------- 

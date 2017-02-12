@@ -1,21 +1,42 @@
 import { NgModule, ErrorHandler } from '@angular/core';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { IonicApp, IonicModule } from 'ionic-angular';
+import { RouterModule, Routes } from '@angular/router';
+import { HttpModule, JsonpModule } from '@angular/http';
+
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+import { HomePage } from './../pages/home/home';
+import { Signup } from './../pages/signup/signup';
+
+import { TodoService } from './../pages/TodoService';
+import { AlertSystem } from './../pages/AlertSystem';
+
+const appRoutes: Routes = [
+  { path: 'todo/signin', component: HomePage },
+  { path: '', redirectTo: '/todo/signin', pathMatch: 'full'},
+  { path: 'todo/signup', component: Signup },
+];
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    Signup
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    RouterModule.forRoot(appRoutes),
+    IonicModule.forRoot(MyApp),
+    HttpModule,
+    JsonpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    Signup
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [TodoService, AlertSystem]
 })
-export class AppModule {}
+export class AppModule { }
+
+
+// https://angular.io/docs/ts/latest/api/common/index/APP_BASE_HREF-let.html

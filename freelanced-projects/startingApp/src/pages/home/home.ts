@@ -1,23 +1,50 @@
-import { Component } from '@angular/core';
+import { TodoService } from './../TodoService';
+
+import { Component, OnInit } from '@angular/core';
 import { AlertController } from 'ionic-angular';
-import { NavController } from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController) {
-    
+  public user: User = new User("", "");
+  constructor(public alertCtrl: AlertController, private appService: TodoService) {
+
   }
 
-  showAlert() {
-    let alert = this.alertCtrl.create({
-      title: 'New Friend!',
-      subTitle: 'Your friend, Obi wan Kenobi, just accepted your friend request!',
-      buttons: ['OK']
-    });
-    alert.present();
+
+  onSignInTapped() {
+    // Limiting the incorrect patterns.
+    // Sending the details to the todo page {Username , Encrypted Data(Username+Current Date)}.
   }
 
+  onForgotTapped() {
+    // Moving to the forgot page.
+  }
+
+  onSigninSocialTapped(socialType: string) {
+    // Viewing modal that has social signing.
+  }
+
+}
+
+class User {
+  constructor(public name: string, public password: string) { }
+
+  signIn() {
+
+  }
+
+  signUp() {
+
+  }
+
+  forgot() {
+
+  }
+
+  toJson() {
+    return JSON.stringify(this);
+  }
 }

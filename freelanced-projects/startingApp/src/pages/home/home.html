@@ -1,11 +1,38 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-
-<ion-content padding>
-  <button ion-button (click)="showAlert()">Default</button>
-</ion-content>
+<div class="appBanner">
+  <h1><span class="To">To</span></h1>
+  <p class="slogan">Finish your stuffs</p>
+</div>
+<div class="appBanner2">
+  <h1><span class="Do">do</span></h1>
+  <p class="slogan2">intelligently.</p>
+</div>
+<div class="signinForm">
+  <p class="signinWord">Sign In</p>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Username</ion-label>
+      <ion-input type="text" clearInput [(ngModel)]="user.name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input type="password" clearInput [(ngModel)]="user.password"></ion-input>
+    </ion-item>
+  </ion-list>
+  <button ion-button class="signinButton">Sign in</button>
+  <button ion-button outline class="forgetpassButton" (click)="onForgotTapped()">Forgot</button>
+  <button ion-button class="signupButton" block routerLink="/todo/signup" routerLinkActive="active">Sign up</button>
+</div>
+<div class="lineThrough">
+  <p class="socialAccountsWord"> <span>Sign in with </span>Social Accounts</p>
+</div>
+<div class="socialIcons">
+  <button ion-button icon-only clear>
+    <ion-icon name="logo-facebook"></ion-icon>
+  </button>
+  <button ion-button icon-only clear class="gplusIcon">
+    <ion-icon name="logo-googleplus"></ion-icon>
+  </button>
+  <button ion-button icon-only clear>
+    <ion-icon name="logo-twitter"></ion-icon>
+  </button>
+</div>

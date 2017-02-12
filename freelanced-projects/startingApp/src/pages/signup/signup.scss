@@ -1,0 +1,35 @@
+.signupForm {
+    margin-top: 20px;
+}
+
+.signupWord{
+    font-family: 'SlimJohn';
+    color: #ff5252;
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: -1px;
+    margin-top: -15px;
+}
+
+.signupButton{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.signInButton {
+    color: #ff5252;
+    border-color: #ff5252;
+}
+
+.text-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar img {
+    width: 92px;
+    height: 92px;
+    border-radius: 46px;
+    cursor: pointer;
+}

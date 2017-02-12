@@ -1,0 +1,36 @@
+<div class="appBanner">
+  <h1><span class="To">To</span></h1>
+  <p class="slogan">Finish your stuffs</p>
+</div>
+<div class="appBanner2">
+  <h1><span class="Do">do</span></h1>
+  <p class="slogan2">intelligently.</p>
+</div>
+<div class="signupForm">
+  <p class="signupWord">Sign Up</p>
+  <ion-list>
+    <ion-item>
+      <div class="text-center avatar">
+        <img src="assets/icon/avatar.png" (click)="onAvatarTapped()" height="92px">
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Username</ion-label>
+      <ion-input type="text" clearInput [(ngModel)]="form.userName" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Email</ion-label>
+      <ion-input type="email" clearInput [(ngModel)]="form.userEmail" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input type="password" clearInput [(ngModel)]="form.userPassword" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Repeat Password</ion-label>
+      <ion-input type="password" clearInput [(ngModel)]="form.userRepeatedPassword" required></ion-input>
+    </ion-item>
+    <button ion-button class="signupButton" block (click)="onSignUpTapped()">Sign up</button>
+    <button ion-button outline block class="signInButton" routerLink="/todo/signin" routerLinkActive="active">Sign in</button>
+  </ion-list>
+</div>
