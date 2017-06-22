@@ -1,4 +1,4 @@
-import { TodoService } from './../TodoService';
+import { TodoService } from './../services/TodoService';
 
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from 'ionic-angular';
@@ -12,7 +12,6 @@ export class HomePage {
   constructor(public alertCtrl: AlertController, private appService: TodoService) {
 
   }
-
 
   onSignInTapped() {
     // Limiting the incorrect patterns.

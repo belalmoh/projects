@@ -11,7 +11,7 @@
   <ion-list>
     <ion-item>
       <div class="text-center avatar">
-        <img src="assets/icon/avatar.png" (click)="onAvatarTapped()" height="92px">
+        <img src="assets/img/avatar.png" #image (click)="onAvatarTapped()" height="92px">
       </div>
     </ion-item>
     <ion-item>
@@ -33,4 +33,19 @@
     <button ion-button class="signupButton" block (click)="onSignUpTapped()">Sign up</button>
     <button ion-button outline block class="signInButton" routerLink="/todo/signin" routerLinkActive="active">Sign in</button>
   </ion-list>
+</div>
+
+<div class="lineThrough">
+  <p class="socialAccountsWord"> <span>Sign in with </span>Social Accounts</p>
+</div>
+<div class="socialIcons">
+  <button ion-button icon-only clear (click)="onFacebookTapped()">
+    <ion-icon name="logo-facebook"></ion-icon>
+  </button>
+  <button ion-button icon-only clear class="gplusIcon">
+    <ion-icon name="logo-googleplus"></ion-icon>
+  </button>
+  <button ion-button icon-only clear>
+    <ion-icon name="logo-twitter"></ion-icon>
+  </button>
 </div>

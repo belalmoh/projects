@@ -1,6 +1,8 @@
 import { MySql } from './database';
 import * as express from 'express';
 import * as bodyParser from "body-parser"
+import * as fs from 'fs';
+import * as http from 'http';
 
 import { CONFIGS } from './config';
 
@@ -52,6 +54,17 @@ export class expressApp {
                 if(errorResponse.code === 'ER_DUP_ENTRY'){
                     res.json(({statusId: CONFIGS.messageResponse.failure.Id, message: {body: CONFIGS.messageResponse.failure.Body = "This email already exists.", title: CONFIGS.messageResponse.failure.Title}}));
                 }
+            });
+        });
+
+        this.App.post('/save-image', function(req: express.Request, res: express.Response){
+            if(!fs.existsSync('users/')){
+                fs.mkdirSync('users/');
+            }
+            process.chdir('users/');
+            var file = fs.createWriteStream(`${req.body.user}.jpg`);
+            var request = http.get(req.body.imageSrc, function(response){
+                response.pipe(file);
             });
         });
     }

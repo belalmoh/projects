@@ -4,11 +4,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 import { Injectable } from '@angular/core';
+import { AlertController } from 'ionic-angular';
 var AlertSystem = (function () {
-    function AlertSystem() {
+    function AlertSystem(alertCtrl) {
+        this.alertCtrl = alertCtrl;
+        this.ErrorResponses = {
+            Connection: {
+                Title: "Connection Error",
+                Message: "Please check your internet connectivity"
+            }
+        };
     }
-    AlertSystem.buildNotification = function (responseTitle, responseMessage) {
+    AlertSystem.prototype.buildNotification = function (responseTitle, responseMessage) {
         var alert = this.alertCtrl.create({
             title: responseTitle,
             subTitle: responseMessage,
@@ -18,8 +29,11 @@ var AlertSystem = (function () {
     };
     return AlertSystem;
 }());
+AlertSystem.FAILED = 0;
+AlertSystem.SUCCESS = 1;
 AlertSystem = __decorate([
-    Injectable()
+    Injectable(),
+    __metadata("design:paramtypes", [AlertController])
 ], AlertSystem);
 export { AlertSystem };
 //# sourceMappingURL=AlertSystem.js.map

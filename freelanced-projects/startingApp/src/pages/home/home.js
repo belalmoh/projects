@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { TodoService } from './../TodoService';
+import { TodoService } from './../services/TodoService';
 import { Component } from '@angular/core';
 import { AlertController } from 'ionic-angular';
 var HomePage = (function () {
@@ -16,9 +16,6 @@ var HomePage = (function () {
         this.appService = appService;
         this.user = new User("", "");
     }
-    HomePage.prototype.ngOnInit = function () {
-        this.appService.testConnection().subscribe(function (response) { console.log(response); }, function (error) { console.log(error); });
-    };
     HomePage.prototype.onSignInTapped = function () {
         // Limiting the incorrect patterns.
         // Sending the details to the todo page {Username , Encrypted Data(Username+Current Date)}.

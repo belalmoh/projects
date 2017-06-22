@@ -8,14 +8,40 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Component } from '@angular/core';
-import { TodoService } from './../TodoService';
+import { AlertSystem } from './../services/AlertSystem';
+import { TodoService } from './../services/TodoService';
+import { facebookLogin } from './facebook/facebook';
 var Signup = (function () {
-    function Signup(todoService) {
+    function Signup(todoService, alertSystem, facebook) {
         this.todoService = todoService;
+        this.alertSystem = alertSystem;
+        this.facebook = facebook;
         this.form = new registrationForm();
     }
+    Signup.prototype.onAvatarTapped = function () {
+        // ImagePicker.getPictures({ maximumImagesCount: 1 }).then((results) => {
+        //     for (var i = 0; i < results.length; i++) {
+        //         console.log('Image URI: ' + results[i]);
+        //     }
+        // }, (err) => { });
+    };
     Signup.prototype.onSignUpTapped = function () {
-        this.todoService.signupUser(this.form.formToJson()).subscribe(function (response) { console.log(response); }, function (error) { console.log(error); });
+        var _this = this;
+        this.form.submitForm(function () {
+            _this.todoService.signupUser(_this.form.formToJson()).subscribe(function (response) {
+                if (!response.statusId) {
+                    _this.alertSystem.buildNotification(response.message.title, response.message.body);
+                }
+                else {
+                    _this.alertSystem.buildNotification(response.message.title, response.message.body);
+                }
+            }, function (error) { _this.alertSystem.buildNotification(_this.alertSystem.ErrorResponses.Connection.Title, _this.alertSystem.ErrorResponses.Connection.Message); });
+        }, function () {
+            _this.alertSystem.buildNotification("Form Error", "Please fill the form correctly.");
+        });
+    };
+    Signup.prototype.onFacebookTapped = function () {
+        this.facebook.login();
     };
     return Signup;
 }());
@@ -24,7 +50,7 @@ Signup = __decorate([
         selector: 'signup',
         templateUrl: 'signup.html'
     }),
-    __metadata("design:paramtypes", [TodoService])
+    __metadata("design:paramtypes", [TodoService, AlertSystem, facebookLogin])
 ], Signup);
 export { Signup };
 var registrationForm = (function () {
@@ -51,7 +77,11 @@ var registrationForm = (function () {
         return (this.isEmail(this.userEmail) && this.isEqual(this.userPassword, this.userRepeatedPassword)
             && this.isFilledForm());
     };
-    registrationForm.prototype.submitForm = function () {
+    registrationForm.prototype.submitForm = function (onSuccess, onError) {
+        if (this.isValidForm())
+            onSuccess();
+        else
+            onError();
     };
     registrationForm.prototype.formToJson = function () {
         return JSON.stringify({

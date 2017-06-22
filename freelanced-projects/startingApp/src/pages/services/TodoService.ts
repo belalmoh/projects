@@ -14,4 +14,8 @@ export class TodoService {
   public signupUser(user): Observable<any> {
     return this._http.post('http://localhost:3000/signup', user, this.options).map((response: Response) => <any>response.json());
   }
+
+  public saveImage(info) {
+    return this._http.post('http://localhost:3000/save-image', info, this.options).map(function (response) { return response.json(); });
+  }
 }

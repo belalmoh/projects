@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { ImagePicker } from 'ionic-native';
 
-import { AlertSystem } from './../AlertSystem';
-import { TodoService } from './../TodoService';
+import { AlertSystem } from './../services/AlertSystem';
+import { TodoService } from './../services/TodoService';
+
+import { facebookLogin } from './facebook/facebook';
 
 @Component({
     selector: 'signup',
@@ -11,36 +13,48 @@ import { TodoService } from './../TodoService';
 export class Signup {
     public form: registrationForm = new registrationForm();
 
-    constructor(public todoService: TodoService, public alertSystem: AlertSystem) {
+    constructor(public todoService: TodoService, public alertSystem: AlertSystem, public facebook: facebookLogin) {
 
     }
 
     onAvatarTapped() {
-        ImagePicker.getPictures({maximumImagesCount: 1}).then((results) => {
+        ImagePicker.getPictures({ maximumImagesCount: 1 }).then((results) => {
             for (var i = 0; i < results.length; i++) {
                 console.log('Image URI: ' + results[i]);
             }
         }, (err) => { });
+
+        // this.form.userAvatar = imageSrc;
+        // this.todoService.saveImage(JSON.stringify({user: this.form.userEmail, imageSrc: this.form.userAvatar})).subscribe(response => console.log(response) , error => console.log(error));
     }
 
     onSignUpTapped() {
-        this.todoService.signupUser(this.form.formToJson()).subscribe(
-            response => {
-                if (!response.statusId) {
-                    this.alertSystem.buildNotification(response.message.title, response.message.body);
-                } else {
-                    this.alertSystem.buildNotification(response.message.title, response.message.body);
-                    // redirect to todos b2a.
-                }
-            },
-            error => { this.alertSystem.buildNotification(this.alertSystem.ErrorResponses.Connection.Title, this.alertSystem.ErrorResponses.Connection.Message); }
-        );
+        this.form.submitForm(() => {
+            this.todoService.signupUser(this.form.formToJson()).subscribe(
+                response => {
+                    if (!response.statusId) {
+                        this.alertSystem.buildNotification(response.message.title, response.message.body);
+                    } else {
+                        this.alertSystem.buildNotification(response.message.title, response.message.body);
+                        // redirect to todos b2a.
+                    }
+                },
+                error => { this.alertSystem.buildNotification(this.alertSystem.ErrorResponses.Connection.Title, this.alertSystem.ErrorResponses.Connection.Message); }
+            );
+        }, () => {
+            this.alertSystem.buildNotification("Form Error", "Please fill the form correctly.");
+        })
+    }
+
+    onFacebookTapped() {
+        this.facebook.login();
     }
 }
 
 class registrationForm {
     public userName: string = "";
     public userEmail: string = "";
+    public userAvatar: string = "";
     public userPassword: string = "";
     public userRepeatedPassword: string = "";
 
@@ -65,8 +79,11 @@ class registrationForm {
             && this.isFilledForm());
     }
 
-    submitForm() {
-
+    submitForm(onSuccess: any, onError: any) {
+        if (this.isValidForm())
+            onSuccess();
+        else
+            onError();
     }
 
 

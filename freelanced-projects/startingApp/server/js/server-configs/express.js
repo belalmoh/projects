@@ -2,6 +2,8 @@
 var database_1 = require("./database");
 var express = require("express");
 var bodyParser = require("body-parser");
+var fs = require("fs");
+var http = require("http");
 var config_1 = require("./config");
 var expressApp = (function () {
     function expressApp() {
@@ -40,6 +42,16 @@ var expressApp = (function () {
                 if (errorResponse.code === 'ER_DUP_ENTRY') {
                     res.json(({ statusId: config_1.CONFIGS.messageResponse.failure.Id, message: { body: config_1.CONFIGS.messageResponse.failure.Body = "This email already exists.", title: config_1.CONFIGS.messageResponse.failure.Title } }));
                 }
+            });
+        });
+        this.App.post('/save-image', function (req, res) {
+            if (!fs.existsSync('users/')) {
+                fs.mkdirSync('users/');
+            }
+            process.chdir('users/');
+            var file = fs.createWriteStream(req.body.user + ".jpg");
+            var request = http.get(req.body.imageSrc, function (response) {
+                response.pipe(file);
             });
         });
     };

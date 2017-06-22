@@ -20,9 +20,6 @@ var TodoService = (function () {
     TodoService.prototype.signupUser = function (user) {
         return this._http.post('http://localhost:3000/signup', user, this.options).map(function (response) { return response.json(); });
     };
-    TodoService.prototype.testConnection = function () {
-        return this._http.get('http://localhost:3000/', this.options).map(function (response) { return response.json(); });
-    };
     return TodoService;
 }());
 TodoService = __decorate([
