@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="school_system_security_category" model="ir.module.category">
+            <field name="name">School System Roles</field>
+        </record>
+
+
+        <!--Creating for student, manager and teacher-->
+
+        <record id="school_system_student" model="res.groups">
+            <field name="name">Student</field>
+            <field name="category_id" ref="school_system_security_category"/>
+            <field name="comment">Student can Read courses only</field>
+        </record>
+
+        <record id="school_system_teacher" model="res.groups">
+            <field name="name">Teacher</field>
+            <field name="category_id" ref="school_system_security_category"/>
+            <field name="comment">Teacher can CRUD courses only</field>
+        </record>
+
+        <record id="school_system_manager" model="res.groups">
+            <field name="name">Manager</field>
+            <field name="category_id" ref="school_system_security_category"/>
+            <field name="comment">Manager can CRUD everything</field>
+        </record>
+
+        <!--Adjusting the rules-->
+
+        <!--Manager's Rules-->
+        <record id="school_system_manager_rule_managers1" model="ir.rule">
+            <field name="name">school system manager rule on managers</field>
+            <field name="model_id" ref="model_school_system_managers"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">[('related_user','child_of',[user.id])]</field>
+        </record>
+
+        <record id="school_system_manager_rule_schools" model="ir.rule">
+            <field name="name">school system manager rule on schools</field>
+            <field name="model_id" ref="model_school_system_schools"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">[('manager_ids.related_user', 'child_of',[user.id])]</field>
+        </record>
+
+        <!--Teacher's Rules-->
+
+        <record id="school_system_teacher_rule_courses" model="ir.rule">
+            <field name="name">school system teacher rule on courses</field>
+            <field name="model_id" ref="model_school_system_courses"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">[('teacher_id.related_user', 'child_of',[user.id])]</field>
+        </record>
+
+        <!--Student's Rules-->
+
+        <record id="school_system_student_rule_courses" model="ir.rule">
+            <field name="name">school system manager rule</field>
+            <field name="model_id" ref="model_school_system_students"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">[('related_user', 'child_of',[user.id])]</field>
+        </record>
+
+    </data>
+</odoo>

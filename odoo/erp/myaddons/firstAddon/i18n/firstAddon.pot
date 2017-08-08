@@ -1,0 +1,232 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* firstAddon
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-07-07 20:09+0000\n"
+"PO-Revision-Date: 2017-07-07 20:09+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: firstAddon
+#: model:ir.model.fields,field_description:firstAddon.field_mansoura_student_is_accepted
+msgid "Accepted"
+msgstr ""
+
+#. module: firstAddon
+#: model:ir.model.fields,field_description:firstAddon.field_mansoura_student_age
+msgid "Age"
+msgstr ""
+
+#. module: firstAddon
+#: model:ir.ui.view,arch_db:firstAddon.mansoura_student_form_view
+msgid "Basic Info"
+msgstr ""
+
+#. module: firstAddon
+#: model:ir.model.fields,field_description:firstAddon.field_mansoura_student_bio
+#: model:ir.ui.view,arch_db:firstAddon.mansoura_student_form_view
+msgid "Bio"
+msgstr ""
+
+#. module: firstAddon
+#: model:ir.model.fields,field_description:firstAddon.field_mansoura_student_cv
+msgid "CV"
+msgstr ""
+
+#. module: firstAddon
+#: model:ir.model.fields,field_description:firstAddon.field_mansoura_skills_create_uid
+#: model:ir.model.fields,field_description:firstAddon.field_mansoura_student_create_uid
+#: model:ir.model.fields,field_description:firstAddon.field_mansoura_tracks_create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: firstAddon
+#: model:ir.model.fields,field_description:firstAddon.field_mansoura_skills_create_date
+#: model:ir.model.fields,field_description:firstAddon.field_mansoura_student_create_date
+#: model:ir.model.fields,field_description:firstAddon.field_mansoura_tracks_create_date
+msgid "Created on"
+msgstr ""
+
+#. module: firstAddon
+#: model:ir.ui.menu,name:firstAddon.data
+msgid "Data"
+msgstr ""
+
+#. module: firstAddon
+#: model:ir.model.fields,field_description:firstAddon.field_mansoura_skills_display_name
+#: model:ir.model.fields,field_description:firstAddon.field_mansoura_student_display_name
+#: model:ir.model.fields,field_description:firstAddon.field_mansoura_tracks_display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: firstAddon
+#: selection:mansoura.student,grade:0
+msgid "Distinct"
+msgstr ""
+
+#. module: firstAddon
+#: model:res.groups,name:firstAddon.mansoura_employee
+msgid "Employee"
+msgstr ""
+
+#. module: firstAddon
+#: model:res.groups,comment:firstAddon.mansoura_employee
+msgid "Employee can CRUD students only"
+msgstr ""
+
+#. module: firstAddon
+#: selection:mansoura.student,grade:0
+msgid "Good"
+msgstr ""
+
+#. module: firstAddon
+#: model:ir.model.fields,field_description:firstAddon.field_mansoura_student_grade
+msgid "Grade"
+msgstr ""
+
+#. module: firstAddon
+#: model:ir.model.fields,field_description:firstAddon.field_mansoura_skills_id
+#: model:ir.model.fields,field_description:firstAddon.field_mansoura_student_id
+#: model:ir.model.fields,field_description:firstAddon.field_mansoura_tracks_id
+msgid "ID"
+msgstr ""
+
+#. module: firstAddon
+#: model:ir.model.fields,field_description:firstAddon.field_mansoura_student_image
+msgid "Image"
+msgstr ""
+
+#. module: firstAddon
+#: model:ir.model.fields,field_description:firstAddon.field_mansoura_skills___last_update
+#: model:ir.model.fields,field_description:firstAddon.field_mansoura_student___last_update
+#: model:ir.model.fields,field_description:firstAddon.field_mansoura_tracks___last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: firstAddon
+#: model:ir.model.fields,field_description:firstAddon.field_mansoura_skills_write_uid
+#: model:ir.model.fields,field_description:firstAddon.field_mansoura_student_write_uid
+#: model:ir.model.fields,field_description:firstAddon.field_mansoura_tracks_write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: firstAddon
+#: model:ir.model.fields,field_description:firstAddon.field_mansoura_skills_write_date
+#: model:ir.model.fields,field_description:firstAddon.field_mansoura_student_write_date
+#: model:ir.model.fields,field_description:firstAddon.field_mansoura_tracks_write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: firstAddon
+#: model:res.groups,name:firstAddon.mansoura_manager
+msgid "Manager"
+msgstr ""
+
+#. module: firstAddon
+#: model:res.groups,comment:firstAddon.mansoura_manager
+msgid "Manager can CRUD students and skills"
+msgstr ""
+
+#. module: firstAddon
+#: model:ir.ui.menu,name:firstAddon.mansoura
+msgid "Mansoura"
+msgstr ""
+
+#. module: firstAddon
+#: model:ir.module.category,name:firstAddon.mansoura_security_category
+msgid "Mansoura Roles"
+msgstr ""
+
+#. module: firstAddon
+#: model:ir.model.fields,field_description:firstAddon.field_mansoura_student_name
+#: model:ir.model.fields,field_description:firstAddon.field_mansoura_tracks_name
+msgid "Name"
+msgstr ""
+
+#. module: firstAddon
+#: model:ir.model.fields,field_description:firstAddon.field_mansoura_tracks_is_open
+msgid "Opened?"
+msgstr ""
+
+#. module: firstAddon
+#: model:ir.ui.view,arch_db:firstAddon.mansoura_student_form_view
+msgid "Other Info"
+msgstr ""
+
+#. module: firstAddon
+#: model:ir.ui.view,arch_db:firstAddon.mansoura_student_form_view
+msgid "Page 2"
+msgstr ""
+
+#. module: firstAddon
+#: model:ir.model.fields,field_description:firstAddon.field_mansoura_student_salary
+msgid "Salary"
+msgstr ""
+
+#. module: firstAddon
+#: model:ir.model.fields,field_description:firstAddon.field_mansoura_skills_skill
+msgid "Skill"
+msgstr ""
+
+#. module: firstAddon
+#: model:ir.model.fields,field_description:firstAddon.field_mansoura_student_skills_ids
+#: model:ir.ui.menu,name:firstAddon.skills
+msgid "Skills"
+msgstr ""
+
+#. module: firstAddon
+#: model:ir.actions.act_window,name:firstAddon.action_skills
+#: model:ir.actions.act_window,name:firstAddon.action_student
+msgid "Student"
+msgstr ""
+
+#. module: firstAddon
+#: model:ir.model.fields,field_description:firstAddon.field_mansoura_tracks_student_ids
+#: model:ir.ui.menu,name:firstAddon.students
+msgid "Students"
+msgstr ""
+
+#. module: firstAddon
+#: model:ir.model.fields,field_description:firstAddon.field_mansoura_student_tax
+msgid "Taxes"
+msgstr ""
+
+#. module: firstAddon
+#: model:ir.model.fields,field_description:firstAddon.field_mansoura_student_track_id
+msgid "Track"
+msgstr ""
+
+#. module: firstAddon
+#: model:ir.actions.act_window,name:firstAddon.action_tracks
+#: model:ir.ui.menu,name:firstAddon.tracks
+msgid "Tracks"
+msgstr ""
+
+#. module: firstAddon
+#: selection:mansoura.student,grade:0
+msgid "Very Good"
+msgstr ""
+
+#. module: firstAddon
+#: model:ir.model,name:firstAddon.model_mansoura_skills
+msgid "mansoura.skills"
+msgstr ""
+
+#. module: firstAddon
+#: model:ir.model,name:firstAddon.model_mansoura_student
+msgid "mansoura.student"
+msgstr ""
+
+#. module: firstAddon
+#: model:ir.model,name:firstAddon.model_mansoura_tracks
+msgid "mansoura.tracks"
+msgstr ""
+

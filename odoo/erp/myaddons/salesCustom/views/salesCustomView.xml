@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="sales_custom_view_inherit" model="ir.ui.view">
+            <field name="name">sale.custom.view.inherit</field>
+            <field name="model">stock.picking</field>
+
+            <!--inheritance view-->
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='state']" position="replace">
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,pending,confirmed,partially_available,assigned,done"/>
+                </xpath>
+                <xpath expr="//header/button[@name='action_confirm']" position="before">
+                    <button name="action_pending" states="draft" string="Proceed" type="object" class="oe_highlight" groups="base.group_user"/>
+                </xpath>
+                <xpath expr="//notebook" position="inside">
+                    <page string="Log">
+                        <tree>
+                            <field name="stock_log">
+                                <tree>
+                                    <field name="user_id" />
+                                    <field name="last_state" />
+                                    <field name="current_state" />
+                                    <field name="date" />
+                                </tree>
+                            </field>
+                        </tree>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

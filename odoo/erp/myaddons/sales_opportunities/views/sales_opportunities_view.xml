@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="sales_opportunities_view_inherit" model="ir.ui.view">
+            <field name="name">sale.custom.view.inherit</field>
+            <field name="model">res.partner</field>
+
+            <!--inheritance view-->
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+                    <page string="Opportunities">
+                        <tree>
+                            <field name="employee_opportunities"/>
+                        </tree>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

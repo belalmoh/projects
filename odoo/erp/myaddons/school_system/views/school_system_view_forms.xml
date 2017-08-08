@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="students_form_view" model="ir.ui.view">
+            <field name="name">Students</field>
+            <field name="model">school.system.students</field>
+            <field name="arch" type="xml">
+                <form string="Create New Student">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                                <field name="active" widget="boolean_button"
+                                       options="{&quot;terminology&quot;: &quot;archive&quot;}"/>
+                            </button>
+                        </div>
+                        <group string="Personal Info">
+                            <field name="name"/>
+                            <field name="year"/>
+                        </group>
+                        <group string="Educational Info">
+                            <field name="course_ids">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="teacher_id"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group string="Login Info">
+                            <field name="related_user"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="teachers_form_view" model="ir.ui.view">
+            <field name="name">Teachers</field>
+            <field name="model">school.system.teachers</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                                <field name="active" widget="boolean_button"
+                                       options="{&quot;terminology&quot;: &quot;archive&quot;}"/>
+                            </button>
+                        </div>
+                        <group string="Personal Info">
+                            <field name="name"/>
+                            <field name="teacher_type"/>
+                            <field name="title"/>
+                        </group>
+                        <group string="Teaching Info">
+                            <field name="course_id"/>
+                        </group>
+                        <group string="Login Info">
+                            <field name="related_user"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="courses_form_view" model="ir.ui.view">
+            <field name="name">Courses</field>
+            <field name="model">school.system.courses</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                                <field name="active" widget="boolean_button"
+                                       options="{&quot;terminology&quot;: &quot;archive&quot;}"/>
+                            </button>
+                        </div>
+                        <group string="Info">
+                            <field name="name"/>
+                        </group>
+                        <group string="Teachers &amp; Students Info">
+                            <field name="teacher_id"/>
+                            <field name="student_ids"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="schools_form_view" model="ir.ui.view">
+            <field name="name">Schools</field>
+            <field name="model">school.system.schools</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                                <field name="active" widget="boolean_button"
+                                       options="{&quot;terminology&quot;: &quot;archive&quot;}"/>
+                            </button>
+                        </div>
+                        <group string="Info">
+                            <field name="name" string="Name"/>
+                            <field name="location"/>
+                            <field name="manager_ids">
+                                <tree>
+                                    <field name="name"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="managers_form_view" model="ir.ui.view">
+            <field name="name">Managers</field>
+            <field name="model">school.system.managers</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                                <field name="active" widget="boolean_button"
+                                       options="{&quot;terminology&quot;: &quot;archive&quot;}"/>
+                            </button>
+                        </div>
+                        <group string="Info">
+                            <field name="name"/>
+                            <field name="school_ids"/>
+                            <field name="years_of_experience"/>
+                        </group>
+                        <group string="Login Info">
+                            <field name="related_user"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="employees_form_view" model="ir.ui.view">
+            <field name="name">Employees</field>
+            <field name="model">hr.employee</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                                <field name="active" widget="boolean_button"
+                                       options="{&quot;terminology&quot;: &quot;archive&quot;}"/>
+                            </button>
+                        </div>
+                        <group string="Personal Info">
+                            <field name="name"/>
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                            <field name="date_from_10days"/>
+                            <field name="birthday"/>
+                            <field name="age"/>
+                        </group>
+                        <group string="Employee">
+                            <field name="employee_id"/>
+                            <field name="department_id" readonly="True"/>
+                            <field name="mobile_phone" readonly="True"/>
+                            <field name="work_phone" readonly="True"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!--wizard and report-->
+
+        <record id="wizard_form_view" model="ir.ui.view">
+            <field name="name">Reports</field>
+            <field name="model">school.system.invoices.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group string="Bill Date">
+                            <group>
+                                <field name="date_from"/>
+                            </group>
+                            <group>
+                                <field name="date_to"/>
+                            </group>
+                        </group>
+                        <footer>
+                            <button name="on_view_clicked" string="View" type="object" class="btn-primary"/>
+                            <button name="on_print_clicked" string="Print" type="object" class="btn-success"/>
+                            <button string="Cancel" class="btn-default" special="cancel"/>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <report id="school_report_invoices"
+                string="Invoices Report"
+                model="account.invoice"
+                report_type="qweb-pdf"
+                name="school_system.report_invoices_sheet"
+                file="school_system.report_invoices_sheet"/>
+
+        <template id="report_invoices_sheet">
+            <t t-call="report.html_container">
+                <t t-call="report.external_layout">
+                    <div class="page">
+                        <table border="1" style="width:100%">
+                            <tr>
+                                <th>Customer</th>
+                                <th>Invoice Date</th>
+                                <th>Number</th>
+                                <th>Salesperson</th>
+                                <th>Due Date</th>
+                                <th>Total</th>
+                                <th>Amount Due</th>
+                            </tr>
+                            <t t-foreach="docs" t-as="o">
+                                <tr>
+                                    <td>
+                                        <span t-field="o.partner_id"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="o.date_invoice"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="o.number"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="o.user_id"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="o.date_due"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="o.amount_total"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="o.residual"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>

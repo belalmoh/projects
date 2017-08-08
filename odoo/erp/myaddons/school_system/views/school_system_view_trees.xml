@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="students_tree_view" model="ir.ui.view">
+            <field name="name">Students</field>
+            <field name="model">school.system.students</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="year"/>
+                    <field name="course_ids"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="teachers_tree_view" model="ir.ui.view">
+            <field name="name">Teachers</field>
+            <field name="model">school.system.teachers</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="teacher_type"/>
+                    <field name="title"/>
+                    <field name="course_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="courses_tree_view" model="ir.ui.view">
+            <field name="name">Courses</field>
+            <field name="model">school.system.courses</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="teacher_id"/>
+                    <field name="student_ids"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!--Overwriting the res things-->
+
+        <record id="schools_tree_view" model="ir.ui.view">
+            <field name="name">Schools</field>
+            <field name="model">school.system.schools</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" string="Name"/>
+                    <field name="location"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="managers_tree_view" model="ir.ui.view">
+            <field name="name">Manager</field>
+            <field name="model">school.system.managers</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" string="Name"/>
+                    <field name="school_ids"/>
+                    <field name="years_of_experience"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="employees_tree_view" model="ir.ui.view">
+            <field name="name">Employees</field>
+            <field name="model">hr.employee</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</odoo>

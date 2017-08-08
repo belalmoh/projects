@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="action_teachers" model="ir.actions.act_window">
+            <field name="name">Teachers</field>
+            <field name="res_model">school.system.teachers</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="action_students" model="ir.actions.act_window">
+            <field name="name">Students</field>
+            <field name="res_model">school.system.students</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="students_search_view"/>
+        </record>
+
+        <record id="action_courses" model="ir.actions.act_window">
+            <field name="name">Courses</field>
+            <field name="res_model">school.system.courses</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="action_schools" model="ir.actions.act_window">
+            <field name="name">Schools</field>
+            <field name="res_model">school.system.schools</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="schools_tree_view"/>
+        </record>
+
+        <record id="action_managers" model="ir.actions.act_window">
+            <field name="name">Managers</field>
+            <field name="res_model">school.system.managers</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="managers_tree_view"/>
+        </record>
+
+        <record id="action_employees" model="ir.actions.act_window">
+            <field name="name">Employees</field>
+            <field name="res_model">hr.employee</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="employees_tree_view"/>
+        </record>
+
+        <record id="action_wizard" model="ir.actions.act_window">
+            <field name="name">Invoice Report Generator</field>
+            <field name="res_model">school.system.invoices.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="view_type">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="school_system" name="School System"/>
+
+        <menuitem id="school_system.teachers" name="Teachers" parent="school_system" action="action_teachers"/>
+
+        <menuitem name="Students" id="school_system.students" parent="school_system" action="action_students"/>
+
+        <menuitem name="Courses" id="school_system.courses" parent="school_system" action="action_courses"/>
+
+        <menuitem name="Schools" id="school_system.schools" parent="school_system" action="action_schools"/>
+
+        <menuitem name="Managers" id="school_system.managers" parent="school_system" action="action_managers"/>
+
+        <menuitem name="Wizard" id="school_system.wizard" parent="school_system" action="action_wizard"/>
+
+        <!--<menuitem name="Employees" id="school_system.employees" parent="school_system" action="action_employees"/>-->
+
+    </data>
+</odoo>

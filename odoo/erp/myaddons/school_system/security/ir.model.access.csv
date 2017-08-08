@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+school_system_manager_courses_crud,Manager on Courses,model_school_system_courses,school_system_manager,1,1,1,1
+school_system_manager_managers_crud,Manager on Managers,model_school_system_managers,school_system_manager,1,1,0,0
+school_system_manager_students_crud,Manager on Students,model_school_system_students,school_system_manager,1,1,1,1
+school_system_manager_teachers_crud,Manager on Teachers,model_school_system_teachers,school_system_manager,1,1,1,1
+school_system_manager_schools_ru,Manager on Schools,model_school_system_schools,school_system_manager,1,1,0,0
+school_system_student_courses_r,Student on Courses,model_school_system_courses,school_system_student,1,0,0,0
+school_system_student_teachers_r,Student on Teachers,model_school_system_teachers,school_system_student,1,0,0,0
+school_system_student_students_r,Student on Students,model_school_system_students,school_system_student,1,0,0,0
+school_system_teacher_courses_cru,Teacher on Courses,model_school_system_courses,school_system_teacher,1,1,1,0
+school_system_teacher_student_ru,Teacher on Students,model_school_system_students,school_system_teacher,1,1,0,0
+school_system_teacher_teahcer_r,Teacher on teachers,model_school_system_teachers,school_system_teacher,1,0,0,0

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <report id="report_customers"
+            string="Customers Report"
+            model="res.partner"
+            report_type="qweb-pdf"
+            name="sales_report.report_customers_sheet"
+            file="sales_report.report_customers_sheet">
+    </report>
+
+    <template id="report_customers_sheet">
+        <t t-call="report.external_layout">
+            <div class="page">
+                <div class="row">
+                    <h3>Title</h3>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="report_customers_sheet">
+    <t t-call="report.html_container">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="report.external_layout">
+                <div class="page">
+                    <h2>Customers Information</h2>
+                    <p>Name: <span t-field="o.name"/></p> <br/>
+                    <p>Address: <span t-field="o.street"/></p>
+                    <p>Website: <span t-field="o.website"/></p> <br/>
+                    <p>Phone: <span t-field="o.phone"/></p>
+                    <p>Mobile: <span t-field="o.mobile"/></p> <br/>
+                    <p>Fax: <span t-field="o.fax"/></p>
+                    <p>Email: <span t-field="o.email"/></p> <br/>
+                    <p>Language: <span t-field="o.lang"/></p>
+                </div>
+            </t>
+        </t>
+    </t>
+</template>
+
+</odoo>

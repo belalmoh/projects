@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="students_search_view" model="ir.ui.view">
+            <field name="name">Students Search</field>
+            <field name="model">school.system.students</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="year"/>
+                </search>
+            </field>
+        </record>
+    </data>
+</odoo>
