@@ -1,0 +1,17 @@
+{
+  "name": "react-context-reducer",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "parcel src/index.html --no-cache"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@parcel/transformer-react-refresh-wrap": "^2.0.1",
+    "parcel": "^2.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
