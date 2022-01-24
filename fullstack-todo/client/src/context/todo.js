@@ -18,9 +18,18 @@ const todoReducer = (state, action) => {
 
     switch(type) {
         case ACTIONS.ADD_TODO:
-            const {id, name, isDone} = payload;
+            var { id, name, isDone } = payload;
             todos.set(id, {id, name, isDone});
-            return {...state, todos};
+            return {...state};
+        case ACTIONS.REMOVE_TODO:
+            var { id } = payload;
+            todos.delete(id);
+            return {...state};
+        case ACTIONS.TOGGLE_TODO:
+            var { id } = payload;
+            let currentTodo = todos.get(id);
+            todos.set(id, {...currentTodo, isDone: !currentTodo.isDone});
+            return {...state};
         default:
             return state;
     }
@@ -33,6 +42,12 @@ const TodoProvider = ({children}) => {
         todos: Array.from(state.todos.values()),
         addTodo: (name, isDone = false) => {
             dispatch({type: ACTIONS.ADD_TODO, payload: {id: state.todos.size+1, name, isDone}});
+        },
+        deleteTodo: (id) => {
+            dispatch({type: ACTIONS.REMOVE_TODO, payload: {id}});
+        },
+        toggleTodo: (id) => {
+            dispatch({type: ACTIONS.TOGGLE_TODO, payload: {id}});
         }
     }
 
